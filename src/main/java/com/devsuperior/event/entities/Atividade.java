@@ -16,8 +16,16 @@ public class Atividade {
     private String descricao;
     private Double preco;
 
+
     @ManyToMany(mappedBy = "atividades")
     private List<Participante> participantes = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
+    @OneToMany(mappedBy = "atividade")
+    private List<Bloco> blocos = new ArrayList<>();
 
     public Atividade(Long id, String nome, String descricao, Double preco) {
         this.id = id;
