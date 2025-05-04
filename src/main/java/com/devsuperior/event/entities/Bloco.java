@@ -6,6 +6,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "tb_bloco")
 public class Bloco {
 
     @Id
@@ -19,6 +20,9 @@ public class Bloco {
     @ManyToOne
     @JoinColumn(name = "atividade_id")
     private Atividade atividade;
+
+    public Bloco() {
+    }
 
     public Bloco(Integer id, LocalDate dia, Instant inicio, Instant fim, Atividade atividade) {
         this.id = id;

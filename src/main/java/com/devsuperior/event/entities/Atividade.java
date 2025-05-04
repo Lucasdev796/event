@@ -27,6 +27,9 @@ public class Atividade {
     @OneToMany(mappedBy = "atividade")
     private List<Bloco> blocos = new ArrayList<>();
 
+    public Atividade() {
+    }
+
     public Atividade(Long id, String nome, String descricao, Double preco) {
         this.id = id;
         this.nome = nome;
@@ -65,4 +68,22 @@ public class Atividade {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
+
+    public List<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public List<Bloco> getBlocos() {
+        return blocos;
+    }
+
+
 }

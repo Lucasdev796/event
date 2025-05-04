@@ -1,11 +1,11 @@
 package com.devsuperior.event.entities;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "tb_categoria")
 public class Categoria {
 
     @Id
@@ -17,10 +17,12 @@ public class Categoria {
     @OneToMany(mappedBy = "categoria")
     private List<Atividade> atividades = new ArrayList<>();
 
-    public Categoria(Integer id, String nome, List<Atividade> atividades) {
+    public Categoria() {
+    }
+
+    public Categoria(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.atividades = atividades;
     }
 
     public Integer getId() {
@@ -41,9 +43,5 @@ public class Categoria {
 
     public List<Atividade> getAtividades() {
         return atividades;
-    }
-
-    public void setAtividades(List<Atividade> atividades) {
-        this.atividades = atividades;
     }
 }
